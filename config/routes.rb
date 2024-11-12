@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'homes/top'
-  root to: "homes#about"
-  get 'homes/about', to: 'homes#about', as: 'about'
-
-  post 'post_images' => 'post_images#create'
-
+  root to: "homes#top"
+  get "homes/about" => "homes#about", as: "about"
   resources :post_images, only: [:new, :create, :index, :show, :destroy]
   resources :users, only: [:show, :edit]
 
+
+
+
+  
+  post 'post_images' => 'post_images#create'
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  
+  delete 'post_images/:id' => 'post_images#destroy', as: 'destroy_post_image'
 end
