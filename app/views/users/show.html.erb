@@ -1,4 +1,6 @@
 <h1>Users#show/users</h1>
+
+<p> 以下ユーザーの詳細 </p>
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
@@ -8,7 +10,7 @@
 </div>
 
 
-
+<p> 以下ユーザーの投稿一覧 </p>
 <% @post_images.each do |post_image| %>
 <div>
   <%= link_to post_image_path(post_image.id) do %>
