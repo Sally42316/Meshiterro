@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   post 'post_images' => 'post_images#create'
 
-  resources :post_images, only: [:new, :create, :index, :show]
+  resources :post_images, only: [:new, :create, :index, :show, :destroy]
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
